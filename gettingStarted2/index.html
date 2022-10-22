@@ -139,7 +139,7 @@
 <pre><code>SUM = A XOR B       // where A,B are inputs
 Carry = A AND B
 </code></pre>
-<p><img alt="sample flipflop code image " src="/static/half_adder.drawio.svg" /></p>
+<p><img alt="sample flipflop code image " src="../static/half_adder.drawio.svg" /></p>
 <h2 id="3-half-adder-program">3. Half Adder program</h2>
 <pre><code>
 include(&quot;stdcomp/stdcomp&quot;);
@@ -187,7 +187,7 @@ make
 ./gen/build/workspace -m i
 
 </code></pre>
-<p><img alt="half adder output" src="/static/logic code interactive mode.gif" /></p>
+<p><img alt="half adder output" src="../static/logic%20code%20interactive%20mode.gif" /></p>
 <pre><code>processing at upp = 5. Ctrl + c to exit.
 A       B       O   
 0       0       0   
@@ -343,7 +343,7 @@ A       B       O
 </code></pre>
 <h2 id="7-full-adder-using-half-adder">7. Full Adder using Half Adder</h2>
 <p>This section helps you understand the use of copy statement. First understand the circuit. </p>
-<p><img alt="full adder using half adder " src="/static/fulladder_using_halfadder.drawio.svg" /></p>
+<p><img alt="full adder using half adder " src="../static/fulladder_using_halfadder.drawio.svg" /></p>
 <p>In order to simplify the code lets move our half adder to another file.  </p>
 <p>Create a file named halfAdder.lc in the project directory and move our HalfAdder module to it. It is also important to include stdcomp in halfAdder.lc as our circuit depends on basic gates. So halfAdder.lc would look like:</p>
 <pre><code>include(&quot;stdcomp/stdcomp&quot;);
