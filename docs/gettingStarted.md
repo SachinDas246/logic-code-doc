@@ -61,7 +61,7 @@ workspace([]=>[])   // workspace is similar to a test bench.
 
 ```
 Before starting , have reference of what we are going to build now.
-![sample flipflop code image ](/static/and gate.drawio.svg)
+![sample flipflop code image ](./static/and gate.drawio.svg)
 
 Following are the changes to simulate AND gate:  
 
@@ -136,7 +136,7 @@ For Linux :
 
 This would ask you to provide the values for the inputs. Use Tab after each value to provide spacing and after providing all the inputs use Enter or Return, and Output will be calculated and printed.
   
-![and gate output](/static/logic_code_and_output.gif)
+![and gate output](./static/logic_code_and_output.gif)
 
 
 ```

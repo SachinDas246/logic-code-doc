@@ -14,7 +14,7 @@ First, understand the circuit, do some research if you are not familiar. In shor
 SUM = A XOR B       // where A,B are inputs
 Carry = A AND B
 ```
-![sample flipflop code image ](/static/half_adder.drawio.svg)
+![sample flipflop code image ](./static/half_adder.drawio.svg)
 
 ## 3. Half Adder program  
 
@@ -70,7 +70,7 @@ make
 
 ```
 
-![half adder output](/static/logic code interactive mode.gif)
+![half adder output](./static/logic code interactive mode.gif)
 
 ```
 processing at upp = 5. Ctrl + c to exit.
@@ -250,7 +250,7 @@ copy("path to the lc file");
 ## 7. Full Adder using Half Adder
 This section helps you understand the use of copy statement. First understand the circuit. 
 
-![full adder using half adder ](/static/fulladder_using_halfadder.drawio.svg)
+![full adder using half adder ](./static/fulladder_using_halfadder.drawio.svg)
 
 In order to simplify the code lets move our half adder to another file.  
 

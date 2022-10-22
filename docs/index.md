@@ -6,7 +6,7 @@ Logic code is currently in demo and will have issues.
 
 
 Logic code is a tool to represent , design and simulate logic circuit.It allows users to write code in logic code format and transpile it to c++ code for execution.
-![sample flipflop code image ](/static/logic%20code%20cvr.svg)
+![sample flipflop code image ](./static/logic%20code%20cvr.svg)
 
 ## Features
 * ##### Module based  
