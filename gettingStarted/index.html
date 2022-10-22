@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Getting Started - Logic Code</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Logic Code</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="../gettingStarted2/" class="dropdown-item">Building A Full Adder</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../install/" class="nav-link">Install</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../stdcomp/" class="nav-link">Components</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../gettingStarted2/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/SachinDas246/logic-code-doc/edit/master/docs/gettingStarted.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#getting-started-with-logic-code" class="nav-link">Getting Started with Logic Code</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-install-logic-code" class="nav-link">1. Install Logic Code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-creating-project" class="nav-link">2. Creating project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-hello-world-program" class="nav-link">3. Hello World Program</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-compile-code" class="nav-link">4. Compile code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-run-project" class="nav-link">5. Run Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="getting-started-with-logic-code">Getting Started with Logic Code</h1>
+<p>The following content will help you get started with Logic Code.</p>
+<h2 id="1-install-logic-code">1. Install Logic Code</h2>
+<p>You may visit the <a href="/install/">Install page to view more info</a>. Or in short, your system should have g++ , make and Nodejs ( with logic-code module installed globally).</p>
+<h2 id="2-creating-project">2. Creating project</h2>
+<p>You can create your project using init <project name>  </p>
+<pre><code>lcc init &lt;project_name&gt;
+</code></pre>
+<p>Then you will be asked "if you need to add stdcomp c++ library ". At present, logic code transpiles to c++ only and if you wish not to create your own components from scratch type yes. If you are a beginner hit yes.</p>
+<p>This creates your project directory with the given Project Name. The project follows the following structure  </p>
+<pre><code>
+myFirstProject                  // project directory
+├── config.json                 // configuration of your project
+├── gen                         // generated Files
+│   ├── build                   //      executable files
+│   ├── config                  //      internal config like make config etc.
+│   ├── lib                     //      c++ libs
+│   │   └── stdcomp             //          installed stdcomp library
+│   │       ├── stdcomp.cpp     //              c++ file for the library
+│   │       ├── stdcomp.h       //              head file for the library
+│   │       └── stdcomp.json    //              config for the library
+│   └── tmp                     // stores temporary files
+└── workspace.lc                // workspace file
+
+</code></pre>
+<p>By default, you are only allowed to create your .lc (logic code) files in the project directories , even though you could copy (import) other .lc file from folders inside the project directories.<br />
+Also note that init has created workspace.lc , this is just a starting point for beginners. You could create a different file and create a wordspace  there.</p>
+<h2 id="3-hello-world-program">3. Hello World Program</h2>
+<p>Unfortunately, you can't print "Hello World " in logic code now. So lets build a simple AND gate. Open workspace.lc in your favourite code editor. It already has some blank template code. Some explanation has given after "//" ( Logic code doesn't support comment at present version ).</p>
+<pre><code>
+include(&quot;stdcomp/stdcomp&quot;); // c++ library to be used during compilation.
+                            // stdcomp provides some basic gates to work with.
+
+workspace([]=&gt;[])   // workspace is similar to a test bench.
+{
+    contains{       // defines components we need
+
+    }
+    wire{           // defines all the wire connections using &quot;=&gt;&quot;
+
+    }
+    init{           // defines inital states
+
+    }
+    process{        // defines order of execution 
+
+    }
+}
+
+</code></pre>
+<p>Before starting , have reference of what we are going to build now.
+<img alt="sample flipflop code image " src="/static/and gate.drawio.svg" /></p>
+<p>Following are the changes to simulate AND gate:  </p>
+<ul>
+<li>Add input (A,B) and output (O) to workspace header. ie workspace([A,B]=&gt;[O])</li>
+<li>Add "And2" (and gate with 2 inputs) to contains.here and1 is just a variable name of type And2. ie And2 and1;</li>
+<li>Connect all wires :  <ul>
+<li>Input of workspace to input of And2 module. ie A =&gt; and1.a; and B =&gt; and1.b;</li>
+<li>Output of And2 module to output of workspace. ie and1.o =&gt; O;</li>
+</ul>
+</li>
+<li>For now just skip init.</li>
+<li>Add and1 to process. ie and1;</li>
+</ul>
+<p>Now our code will be  </p>
+<pre><code>
+include(&quot;stdcomp/stdcomp&quot;);
+
+workspace([A,B]=&gt;[O])
+{
+    contains{
+        And2 and1;
+    }
+    wire{
+        A =&gt; and1.a;
+        B =&gt; and1.b;
+
+        and1.o =&gt; O;     
+
+    }
+    init{
+
+    }
+    process{
+        and1;
+    }
+}
+
+</code></pre>
+<p>Just note that using reserved keywords as variable names (including keywords of c++) can cause errors or undesireable results. So to avoid error don't use "and" as variable name for And2 gate.</p>
+<h2 id="4-compile-code">4. Compile code</h2>
+<p>Logic code transpiler transpiles logic code to c++ code, which can further compiled to executable.So make sure g++ and make is installed and added to $PATH. To transpile your logic code file run</p>
+<pre><code>    lcc &lt;filename.lc&gt;
+</code></pre>
+<p>here</p>
+<pre><code>    lcc workspace.lc
+</code></pre>
+<p>This would generate :  </p>
+<ul>
+<li>a cpp file</li>
+<li>make config file (make.json)</li>
+<li>Makefile  </li>
+</ul>
+<p>Logic code takes care of the MakeFile genration and the make.json file holds the config for generating Makefile.</p>
+<p>To build your project use make</p>
+<pre><code>make
+</code></pre>
+<p>This would generate the executable in the build folder.</p>
+<h2 id="5-run-project">5. Run Project</h2>
+<p>Running the executable is similar to running other c++ executables. Also, there are several arguments that can be provided to configure the behaviour.
+Here we are going to run it in the interactive mode. <a href="/runningExe/">You could find other arguments here</a> .   </p>
+<p>For Linux :</p>
+<pre><code>./gen/build/workspace -m i
+</code></pre>
+<p>This would ask you to provide the values for the inputs. Use Tab after each value to provide spacing and after providing all the inputs use Enter or Return, and Output will be calculated and printed.</p>
+<p><img alt="and gate output" src="/static/logic_code_and_output.gif" /></p>
+<pre><code>processing at upp = 5. Ctrl + c to exit.
+A   B   O   
+0   0   0   
+0   1   0
+1   0   0
+1   1   1
+
+</code></pre>
+<h5 id="next-move-to-half-adder"><a href="/gettingStarted2/">Next: Move to Half Adder</a></h5></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

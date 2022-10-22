@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Building A Full Adder - Logic Code</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Logic Code</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gettingStarted/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Building A Full Adder</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../install/" class="nav-link">Install</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../stdcomp/" class="nav-link">Components</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../gettingStarted/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../install/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/SachinDas246/logic-code-doc/edit/master/docs/gettingStarted2.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#adder-circuit" class="nav-link">Adder Circuit</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-create-project" class="nav-link">1. Create Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-create-a-half-addder-inside-workspacelc" class="nav-link">2. Create a Half Addder inside workspace.lc</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-half-adder-program" class="nav-link">3. Half Adder program</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-complie-the-code-and-run" class="nav-link">4. Complie the code and Run</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-creating-a-module" class="nav-link">5. Creating a module</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6-splitting-into-separate-files" class="nav-link">6. Splitting into separate files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#7-full-adder-using-half-adder" class="nav-link">7. Full Adder using Half Adder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="adder-circuit">Adder Circuit</h1>
+<p>This tutorial will help you understant the basic concepts of logic code and will cover few more advanced concepts like module, copy and include.</p>
+<h2 id="1-create-project">1. Create Project</h2>
+<p>Create a new Project using init  </p>
+<pre><code>lcc init adder
+</code></pre>
+<h2 id="2-create-a-half-addder-inside-workspacelc">2. Create a Half Addder inside workspace.lc</h2>
+<p>First, understand the circuit, do some research if you are not familiar. In short :</p>
+<pre><code>SUM = A XOR B       // where A,B are inputs
+Carry = A AND B
+</code></pre>
+<p><img alt="sample flipflop code image " src="/static/half_adder.drawio.svg" /></p>
+<h2 id="3-half-adder-program">3. Half Adder program</h2>
+<pre><code>
+include(&quot;stdcomp/stdcomp&quot;);
+
+workspace([A,B]=&gt;[SUM,Carry])
+{
+    contains{
+        Xor2 xor1;
+        And2 and1;
+    }
+    wire{
+        A =&gt; xor1.a;
+        B =&gt; xor1.b;
+
+        xor1.o =&gt; SUM;
+
+        A =&gt; and1.a;
+        B =&gt; and1.b;
+
+        and1.o =&gt; Carry;
+
+    }
+    init{
+        [A] = [0];
+        [B] = [0];    
+    }
+    process{
+        xor1;
+        and1;
+
+    }
+}
+
+</code></pre>
+<p>Note , here we have used init section here, just to give you an understanding of it. Even though this is not necessary in this case, there may be circuits where output depends on the previous states, for instance flipflops.  Remember you only allowed initilize values for input ports in workspace and output ports in modules, as rest of the ports depend on other ports.</p>
+<h2 id="4-complie-the-code-and-run">4. Complie the code and Run</h2>
+<p>Compile the code using  </p>
+<pre><code>// transpile lc to c++ code
+lcc workspace.lc
+
+// build
+make
+
+// execute in interactive mode
+./gen/build/workspace -m i
+
+</code></pre>
+<p><img alt="half adder output" src="/static/logic code interactive mode.gif" /></p>
+<pre><code>processing at upp = 5. Ctrl + c to exit.
+A       B       O   
+0       0       0   
+0       1       0
+1       0       0
+1       1       1
+</code></pre>
+<h2 id="5-creating-a-module">5. Creating a module</h2>
+<p>Modules allow us to create components ( in this case half adder ) and reuse it, similar to functions. Module also follows similar structure to workspace , but does have a name. You could create inside the workspace.lc file itself (doing now) or in a define it in a separate file (next section) and import using copy.<br />
+A blank module structure would look like :  </p>
+<pre><code>module &lt;ModuleName&gt;([]=&gt;[])
+{
+    contains{
+    }
+    wire{
+    }
+    init{
+    }
+    process{
+    }
+}
+</code></pre>
+<p>Note, Modules must be defined before its usage. Half adder module would look like :  </p>
+<pre><code>module HalfAdder([a,b]=&gt;[sum,carry])
+{
+    contains{
+        Xor2 xor1;
+        And2 and1;
+    }
+    wire{
+        a =&gt; xor1.a;
+        b =&gt; xor1.b;
+
+        xor1.o =&gt; sum;
+
+        a =&gt; and1.a;
+        b =&gt; and1.b;
+
+        and1.o =&gt; carry;
+    }
+    init{
+        [sum] = [0];
+        [carry] = [0];
+    }
+    process{
+        xor1;
+        and1;
+    }
+}
+</code></pre>
+<p>We have changed some port name (example: A to a, SUM to sum etc), to help you understand better. Also we have changed the init section from a,b to sum, carry. As we have created HalfAdder module we have to change workspace to use this module. </p>
+<pre><code>workspace([A,B]=&gt;[S,C])
+{
+    contains{
+        HalfAdder ha;
+    }
+    wire{
+        A =&gt; ha.a;
+        B =&gt; ha.b;
+
+        ha.sum =&gt; S;
+        ha.carry =&gt; C;
+    }
+    init{  
+        [A] = [0];
+        [B] = [0];
+    }
+    process{
+        ha;
+    }
+}
+</code></pre>
+<p>Now our workspace.lc would look like :  </p>
+<pre><code>include(&quot;stdcomp/stdcomp&quot;);
+
+module HalfAdder([a,b]=&gt;[sum,carry])
+{
+    contains{
+        Xor2 xor1;
+        And2 and1;
+    }
+    wire{
+        a =&gt; xor1.a;
+        b =&gt; xor1.b;
+
+        xor1.o =&gt; sum;
+
+        a =&gt; and1.a;
+        b =&gt; and1.b;
+
+        and1.o =&gt; carry;
+    }
+    init{
+        [sum] = [0];
+        [carry] = [0];
+    }
+    process{
+        xor1;
+        and1;
+    }
+}
+
+workspace([A,B]=&gt;[S,C])
+{
+    contains{
+        HalfAdder ha;
+    }
+    wire{
+        A =&gt; ha.a;
+        B =&gt; ha.b;
+
+        ha.sum =&gt; S;
+        ha.carry =&gt; C;
+
+    }
+    init{ 
+        [A] = [0];
+        [B] = [0];  
+    }
+    process{
+        ha;
+    }
+}
+</code></pre>
+<p>Try running your project using : </p>
+<pre><code>// transpile lc to c++ code
+lcc workspace.lc
+
+// build
+make
+
+// execute in interactive mode
+./gen/build/workspace -m i
+
+</code></pre>
+<p>And you should get the same output as before:</p>
+<pre><code>processing at upp = 5. Ctrl + c to exit.
+A       B       O   
+0       0       0   
+0       1       0
+1       0       0
+1       1       1
+</code></pre>
+<h2 id="6-splitting-into-separate-files">6. Splitting into separate files</h2>
+<p>Projects can become big soon and defining everything in a single file can no longer be possible. In order to avoid this logic code provide 2 ways to split you projects to smaller files.  </p>
+<h4 id="1-include-statement">1. include statement</h4>
+<p>Technically, include statements only helps you to import modules and gates from c++ files. But if your designed circuit in the c++ way [check Create your own c++ components ]. you could import it using include like you imported stdcomp. ie include("stdcomp/stdcomp");</p>
+<pre><code>include(&quot;&lt;path to cpp component library's json file without .json&quot;);
+</code></pre>
+<h4 id="2-copy-statement">2. copy statement</h4>
+<p>Copy statement allows you to import modules from another .lc file. Currently it is not possible to import only a particular component from a lc file, when you use copy every component in that file is available.</p>
+<pre><code>copy(&quot;path to the lc file&quot;);
+</code></pre>
+<h2 id="7-full-adder-using-half-adder">7. Full Adder using Half Adder</h2>
+<p>This section helps you understand the use of copy statement. First understand the circuit. </p>
+<p><img alt="full adder using half adder " src="/static/fulladder_using_halfadder.drawio.svg" /></p>
+<p>In order to simplify the code lets move our half adder to another file.  </p>
+<p>Create a file named halfAdder.lc in the project directory and move our HalfAdder module to it. It is also important to include stdcomp in halfAdder.lc as our circuit depends on basic gates. So halfAdder.lc would look like:</p>
+<pre><code>include(&quot;stdcomp/stdcomp&quot;);
+
+module HalfAdder([a,b]=&gt;[sum,carry])
+{
+    contains{
+        Xor2 xor1;
+        And2 and1;
+    }
+    wire{
+        a =&gt; xor1.a;
+        b =&gt; xor1.b;
+
+        xor1.o =&gt; sum;
+
+        a =&gt; and1.a;
+        b =&gt; and1.b;
+
+        and1.o =&gt; carry;
+    }
+    init{
+        [a] = [0];
+        [b] = [0];
+    }
+    process{
+        xor1;
+        and1;
+    }
+}
+
+</code></pre>
+<p>And now lets create Full adder in our workspace.lc  </p>
+<pre><code>include(&quot;stdcomp/stdcomp&quot;);
+copy(&quot;halfAdder.lc&quot;);
+
+workspace([A,B,Cin]=&gt;[SUM,Cout])
+{
+    contains{
+        HalfAdder ha1,ha2;
+        Or2 or1;
+    }
+    wire{
+        A =&gt; ha1.a;
+        B =&gt; ha1.b;
+
+        ha1.sum =&gt; ha2.b;
+        ha1.carry =&gt; or1.b;
+
+        Cin =&gt; ha2.a;
+
+        ha2.sum =&gt; SUM;
+        ha2.carry =&gt; or1.a;
+
+        or1.o =&gt; Cout;
+    }
+    init{ 
+        [A] = [0];
+        [B] = [0];
+        [Cin] = [0];
+    }
+    process{
+        ha1;
+        ha2;
+        or1;
+    }
+}
+
+</code></pre>
+<p>Try running your project using : </p>
+<pre><code>// transpile lc to c++ code
+lcc workspace.lc
+
+// build
+make
+
+// execute in interactive mode
+./gen/build/workspace -m i
+
+</code></pre>
+<p>Output:</p>
+<pre><code>processing at upp = 5. Ctrl + c to exit.
+A       B       Cin     SUM     Cout    
+0       0       0       0       0   
+0       0       0       0       0
+0       0       1       1       0
+0       1       0       1       0
+0       1       1       0       1
+1       0       0       1       0
+1       0       1       0       1
+1       1       0       0       1
+1       1       1       1       1
+</code></pre>
+<p>You have reached the end of the getting started section.Now you can explore logic code your own. Check :  </p>
+<ul>
+<li><a href="/stdcomp/">Components available in stdcomp</a></li>
+<li>Rules to understand the basic rules of logic code.</li>
+<li><a href="/runningExe/">Running modes to see different modes under wich you can run your code</a></li>
+<li><a href="/unsupported/">Also make sure you check the currently unsupported features </a></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
