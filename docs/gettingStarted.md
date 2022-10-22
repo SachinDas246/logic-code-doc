@@ -2,7 +2,7 @@
 The following content will help you get started with Logic Code.
 
 ## 1. Install Logic Code  
-You may visit the [Install page to view more info](/install/). Or in short, your system should have g++ , make and Nodejs ( with logic-code module installed globally).
+You may visit the [Install page to view more info](./install/). Or in short, your system should have g++ , make and Nodejs ( with logic-code module installed globally).
 
 
 ## 2. Creating project  
@@ -127,7 +127,7 @@ This would generate the executable in the build folder.
 ## 5. Run Project  
 
 Running the executable is similar to running other c++ executables. Also, there are several arguments that can be provided to configure the behaviour.
-Here we are going to run it in the interactive mode. [You could find other arguments here](/runningExe/) .   
+Here we are going to run it in the interactive mode. [You could find other arguments here](./runningExe/) .   
 
 For Linux :
 ```
@@ -152,4 +152,4 @@ A	B	O
      
         
 
-##### [Next: Move to Half Adder](/gettingStarted2/)  
+##### [Next: Move to Half Adder](./gettingStarted2/)  

@@ -22,8 +22,8 @@ Not everybody likes C++ and Make. So logic code transpiler take care of Makefile
 
 
 ## Learn logic code:
-1. [Install](/install/)
-2. [Getting Started with logic code](/gettingStarted/)
-3. [Available components](/stdcomp/)
-4. [Running Executable and Obtaining Output](/runningExe/)
-5. [Features that are not currently available](/unsupported/)
+1. [Install](./install/)
+2. [Getting Started with logic code](./gettingStarted/)
+3. [Available components](./stdcomp/)
+4. [Running Executable and Obtaining Output](./runningExe/)
+5. [Features that are not currently available](./unsupported/)

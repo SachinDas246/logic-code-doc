@@ -356,7 +356,7 @@ A	    B	    Cin 	SUM	    Cout
 
 You have reached the end of the getting started section.Now you can explore logic code your own. Check :  
 
-* [Components available in stdcomp](/stdcomp/)
+* [Components available in stdcomp](./stdcomp/)
 * Rules to understand the basic rules of logic code.
-* [Running modes to see different modes under wich you can run your code](/runningExe/)
-* [Also make sure you check the currently unsupported features ](/unsupported/)
+* [Running modes to see different modes under wich you can run your code](./runningExe/)
+* [Also make sure you check the currently unsupported features ](./unsupported/)
