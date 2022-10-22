@@ -1,0 +1,12 @@
+site_name: Logic Code
+repo_url: https://github.com/SachinDas246/logic-code-doc
+nav:
+    - 'Getting Started':
+        - 'Getting Started': gettingStarted.md
+        - 'Building A Full Adder': gettingStarted2.md
+    - Install: install.md
+    - Components: stdcomp.md
+theme:
+    name: spacelab
+
+
