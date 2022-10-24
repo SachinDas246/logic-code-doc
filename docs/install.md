@@ -11,7 +11,7 @@ Logic code and its core components are built using Node.js . To get started, ins
 Logic Code requires a c++ compile and make to create executables. Also, steps for installation also may vary depending on your system. Unfortunately, we cannot provide you with steps for both of these installs.
 
 ### Install Logic Code package globally
-To install logic code globally 
+Make sure you install logic code globally.
 ```
-update here
+npm i logic-code -g
 ```
